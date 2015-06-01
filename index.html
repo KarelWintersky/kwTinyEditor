@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Test editor & test converter word-formatted data to simple html code</title>
+
+    <script src="/testedit/core/js/jquery-1.10.2.min.js"></script>
+    <script src="/testedit/core/js/tinymce/tinymce.min.js"></script>
+    <script src="/testedit/core/js/tinymce.config.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            tinify(tiny_config['full'], 'area1');
+        });
+
+    </script>
+    <style type="text/css">
+        .convert-form label {
+            font-size: large;
+        }
+        .convert-form input[type="checkbox"] {
+            transform: scale(2);
+            margin: 0 10px 0 10px;
+        }
+        .convert-form button {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+<form action="/testedit/core/actor.php" method="post" class="convert-form">
+    <label for="form_page_title">
+        Название страницы: <input type="text" name="title" value="" size="60" id="form_page_title" disabled>
+    </label>
+    <label for="form_cb_use_parsehtmlbbcode">
+        Обернуть результат BB-кодом <strong>[parsehtml]</strong>?
+        <input type="checkbox" checked name="cb_use_parsehtmlbbcode" id="form_cb_use_parsehtmlbbcode">
+    </label>
+    <br><br>
+    <textarea name="textdata" id="area1" cols="80" rows="20"></textarea><br>
+    <button type="submit">Convert</button>
+</form>
+
+
+</body>
+</html>
